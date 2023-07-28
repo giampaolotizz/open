@@ -20,8 +20,6 @@ ADD index.html /www/data/
 # Expose ports
 EXPOSE 80
 
-ENTRYPOINT ["/runner.sh"]
-
 # Set the default command to execute
 # when creating a new container
 CMD ["nginx"]
