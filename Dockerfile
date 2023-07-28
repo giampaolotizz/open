@@ -5,28 +5,8 @@
 
 
 # Set the base image to Ubuntu
-FROM ubuntu
+FROM nginxinc/nginx-unprivileged 
 
-# File Author / Maintainer
-MAINTAINER Karthik Gaekwad
-
-# Install Nginx
-
-# Add application repository URL to the default sources
-# RUN echo "deb http://archive.ubuntu.com/ubuntu/ raring main universe" >> /etc/apt/sources.list
-
-# Update the repository
-RUN apt-get update
-
-# Install necessary tools
-RUN apt-get install -y vim wget dialog net-tools
-
-RUN apt-get install -y nginx
-
-RUN chgrp -R root /var/cache/nginx /var/run /var/log/nginx && \
-    chmod -R 770 /var/cache/nginx /var/run /var/log/nginx
-
-# Remove the default Nginx configuration file
 RUN rm -v /etc/nginx/nginx.conf
 
 # Copy a configuration file from the current directory
