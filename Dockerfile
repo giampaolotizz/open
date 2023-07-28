@@ -23,6 +23,9 @@ RUN apt-get install -y vim wget dialog net-tools
 
 RUN apt-get install -y nginx
 
+RUN chgrp -R root /var/cache/nginx /var/run /var/log/nginx && \
+    chmod -R 770 /var/cache/nginx /var/run /var/log/nginx
+
 # Remove the default Nginx configuration file
 RUN rm -v /etc/nginx/nginx.conf
 
